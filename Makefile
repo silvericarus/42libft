@@ -32,7 +32,7 @@ SRCS 		= \
 				ft_putchar_fd.c\
 				ft_putendl_fd.c\
 				ft_striteri.c\
-				ft_strmapi.c
+				ft_strmapi.c \
 
 SRCSBONUS	= \
 				ft_lstnew_bonus.c\
@@ -46,30 +46,37 @@ SRCSBONUS	= \
 				ft_lstmap_bonus.c\
 				$(SRCS)
 
+SRCSFT_PRINTF=\
+				ft_printf.c \
+				utils.c \
+				utils2.c \
+				utils3.c \
+
 OBJS 		= $(SRCS:.c=.o)
 OBJSBONUS	= $(SRCSBONUS:.c=.o)
+OBJSFT_PRINTF= $(SRCSFT_PRINTF:.c=.o)
 NAME		= libft.a
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 
-all: $(NAME)
+all: $(NAME) 
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(OBJSFT_PRINTF)
+	ar -rc $(NAME) $(OBJS) $(OBJSFT_PRINTF)
 
 clean:
-	$(RM) $(OBJS) $(OBJSBONUS)
+	$(RM) $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJS) $(OBJSBONUS)
-	ar -rc $(NAME) $(OBJS) $(OBJSBONUS)
+bonus: $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF)
+	ar -rc $(NAME) $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF)
 
 .PHONY: all clean fclean re
