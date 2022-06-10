@@ -52,12 +52,17 @@ SRCSFT_PRINTF=\
 				utils2.c \
 				utils3.c \
 
+SRCS_GNL=\
+				get_next_line.c \
+				get_next_line_utils.c \
+
 OBJS 		= $(SRCS:.c=.o)
 OBJSBONUS	= $(SRCSBONUS:.c=.o)
 OBJSFT_PRINTF= $(SRCSFT_PRINTF:.c=.o)
+OBJS_GNL= $(SRCS_GNL:.c=.o)
 NAME		= libft.a
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -D BUFFER_SIZE=42
 RM			= rm -f
 
 all: $(NAME) 
@@ -65,18 +70,18 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS) $(OBJSFT_PRINTF)
-	ar -rc $(NAME) $(OBJS) $(OBJSFT_PRINTF)
+$(NAME): $(OBJS) $(OBJSFT_PRINTF) $(OBJS_GNL)
+	ar -rc $(NAME) $(OBJS) $(OBJSFT_PRINTF) $(OBJS_GNL)
 
 clean:
-	$(RM) $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF)
+	$(RM) $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF) $(OBJS_GNL)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF)
-	ar -rc $(NAME) $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF)
+bonus: $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF) $(OBJS_GNL)
+	ar -rc $(NAME) $(OBJS) $(OBJSBONUS) $(OBJSFT_PRINTF) $(OBJS_GNL)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

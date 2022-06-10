@@ -6,7 +6,7 @@
 /*   By: albgonza <albgonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 12:42:09 by albgonza          #+#    #+#             */
-/*   Updated: 2022/05/23 11:32:34 by albgonza         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:08:48 by albgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //ft_printf
 int		ft_printf(char const *idn, ...);
+//get_next_line
+char	*get_next_line(int fd);
 #endif
