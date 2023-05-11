@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_print.c                                      :+:      :+:    :+:   */
+/*   ft_arrsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albgonza <albgonza@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 17:15:51 by albgonza          #+#    #+#             */
-/*   Updated: 2022/04/19 16:10:05 by albgonza         ###   ########.fr       */
+/*   Created: 2022/09/15 11:56:35 by albgonza          #+#    #+#             */
+/*   Updated: 2023/01/18 00:05:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-comprueba si el carácter es imprimible, 
-incluyendo el espacio en blanco.
-*/
-int	ft_isprint(int str)
+
+size_t	ft_arrsize(void *arr)
 {
-	if (str < ' ' || str > '~')
-		return (0);
-	return (1);
+	if (sizeof(arr) == 0)
+		return ((size_t)0);
+	else
+		return ((size_t) sizeof(arr) / sizeof(arr[0]));
 }

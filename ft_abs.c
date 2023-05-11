@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_print.c                                      :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albgonza <albgonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 17:15:51 by albgonza          #+#    #+#             */
-/*   Updated: 2022/04/19 16:10:05 by albgonza         ###   ########.fr       */
+/*   Created: 2022/11/29 13:20:30 by albgonza          #+#    #+#             */
+/*   Updated: 2022/11/29 13:22:20 by albgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-comprueba si el carácter es imprimible, 
-incluyendo el espacio en blanco.
-*/
-int	ft_isprint(int str)
+
+int	ft_abs(int nbr)
 {
-	if (str < ' ' || str > '~')
-		return (0);
-	return (1);
+	if (nbr < 0)
+		return (nbr * -1);
+	else
+		return (nbr);
 }
