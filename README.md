@@ -58,3 +58,30 @@ Bonus functions:
 |                | content of each node. Creates a new list resulting of the  |
 |                | successive applications of the function ’f’. The ’del’     |
 |                | function is used to delete the content of a node if needed. |
+
+
+# ft_printf
+## Because ft_putnbr() and ft_putstr() aren't enough
+You have to implement the following conversions:
+- %c Prints a single character.
+- %s Prints a string (as defined by the common C convention).
+- %p The void * pointer argument has to be printed in hexadecimal format.
+- %d Prints a decimal (base 10) number.
+- %i Prints an integer in base 10.
+- %u Prints an unsigned decimal (base 10) number.
+- %x Prints a number in hexadecimal (base 16) lowercase format.
+- %X Prints a number in hexadecimal (base 16) uppercase format.
+- %% Prints a percent sign.
+
+# get_next_line
+## Reading a line from a fd is way too tedious
+| Function name       | get_next_line                                               |
+|---------------------|-------------------------------------------------------------|
+| Prototype           | char \*get_next_line(int fd);                                 |
+| Turn in files       | get_next_line.c, get_next_line_utils.c, get_next_line.h      |
+| Parameters          | fd: The file descriptor to read from                         |
+| Return value        | Read line: correct behavior                                  |
+|                     | NULL: there is nothing else to read, or an error occurred    |
+| External functs.    | read, malloc, free                                          |
+| Description         | Write a function that returns a line read from a file descriptor |
+
